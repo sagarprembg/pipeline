@@ -10,12 +10,6 @@ stage("build stage"){
 steps{
 sh 'make'
 }
-post{
-sucess{
-echo "archiving the artifact"
-archive artifacts:'**/target/*.war'
-}
-}
 }
 }
 }
