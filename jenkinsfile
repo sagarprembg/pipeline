@@ -1,0 +1,21 @@
+pipeline{
+agent any
+stages{
+stage("git cloning"){
+steps{
+git 'https://github.com/sagarprembg/c-project1.git'
+}
+}
+stage("build stage"){
+steps{
+sh 'make'
+}
+post{
+sucess{
+echo "archiving the artifact"
+archive artifacts:'**/target/*.war'
+}
+}
+}
+}
+}
